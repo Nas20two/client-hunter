@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.env
+data/snapshots/**/*.json
+data/leads/**/*.json
+OUTBOX/client-hunter/emails/*.md
+/tmp/
+.DS_Store

@@ -1,0 +1,23 @@
+name: Nightly Hunt
+
+on:
+  schedule:
+    - cron: '0 16 * * *' # 02:00 AEST / 03:00 AEDT
+  workflow_dispatch:
+
+jobs:
+  hunt:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm ci
+      - run: npm run build
+      - run: npm run hunt
+        env:
+          BUZZ_RELAY_URL: ${{ secrets.BZZ_RELAY_URL }}
+          BUZZ_PRIVATE_KEY: ${{ secrets.BUZZ_PRIVATE_KEY }}
+          BUZZ_AUTH_TAG: ${{ secrets.BUZZ_AUTH_TAG }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
