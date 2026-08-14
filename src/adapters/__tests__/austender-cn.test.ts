@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert';
-import * as XLSX from 'xlsx';
+import { buildXlsxBuffer } from '../xlsx-manual.js';
 import {
   AusTenderCnAdapter,
   validateAbn,
@@ -21,19 +21,10 @@ function makeMockFetch(responses: { url: RegExp; response: Response }[]): typeof
   }) as typeof fetch;
 }
 
-function buildXlsxBuffer(rows: Record<string, unknown>[]): ArrayBuffer {
-  const headers = rows.length > 0 ? Object.keys(rows[0]) : [];
-  const data = rows.map((r) => headers.map((h) => r[h] ?? ''));
-  const worksheetData = [
-    ['Contract Notice Export', ...Array(Math.max(0, headers.length - 1)).fill('')],
-    Array(headers.length).fill(''),
-    headers,
-    ...data,
-  ];
-  const worksheet = XLSX.utils.aoa_to_sheet(worksheetData);
-  const workbook = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(workbook, worksheet, 'Export');
-  return XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+function buildXlsxBufferWithBadHeaders(): ArrayBuffer {
+  return buildXlsxBuffer([
+    { Wrong: 'x', Headers: 'y' },
+  ]);
 }
 
 const BASE_ROW = {
@@ -229,15 +220,7 @@ test('parseWorkbook infers category cluster from Description when Category is bl
 });
 
 test('parseWorkbook throws when required columns are missing', () => {
-  const worksheet = XLSX.utils.aoa_to_sheet([
-    ['Contract Notice Export'],
-    [''],
-    ['Wrong', 'Headers'],
-    ['x', 'y'],
-  ]);
-  const workbook = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(workbook, worksheet, 'Export');
-  const buffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+  const buffer = buildXlsxBufferWithBadHeaders();
 
   const adapter = new AusTenderCnAdapter();
   assert.throws(() => adapter.parseWorkbook(buffer, 'https://example.com/export.xlsx'), /could not locate header row/);

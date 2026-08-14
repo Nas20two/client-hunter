@@ -6,7 +6,7 @@ Nightly lead discovery + packaging pipeline for nasyhub products.
 
 - Phase 1 (TI only) in build.
 - Source strategy: AusTender `/atm` via Jina Reader primary; CN export as secondary signal.
-- Compliance: per-lead approval, no auto-send, verified-email gate, suppression list.
+- Compliance: per-lead approval, no auto-send, verified-email gate, suppression list. CN parser: zero external dependencies (Node.js built-in zlib + XML parser), clean supply chain.
 
 ## Docs
 

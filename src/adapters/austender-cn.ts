@@ -1,5 +1,5 @@
 import { SourceAdapter, Candidate } from '../types.js';
-import * as XLSX from 'xlsx';
+import { unzipXlsx, parseSharedStrings, parseWorksheet, type CellValue } from './xlsx-manual.js';
 
 export interface AusTenderCnAdapterConfig {
   /** Jina Reader base URL used to render the export list page as Markdown. */
@@ -207,13 +207,16 @@ export class AusTenderCnAdapter implements SourceAdapter {
    * column names and use it as the header.
    */
   parseWorkbook(buffer: ArrayBuffer, sourceUrl: string): Candidate[] {
-    const workbook = XLSX.read(new Uint8Array(buffer), { type: 'array' });
-    const sheetName = workbook.SheetNames[0];
-    const worksheet = workbook.Sheets[sheetName];
-    const allRows = XLSX.utils.sheet_to_json<unknown[]>(worksheet, {
-      header: 1,
-      defval: '',
-    });
+    const files = unzipXlsx(buffer);
+
+    const worksheetXml = files.get('xl/worksheets/sheet1.xml');
+    if (!worksheetXml) {
+      throw new Error('CN export workbook is missing xl/worksheets/sheet1.xml');
+    }
+
+    const sharedStringsXml = files.get('xl/sharedStrings.xml');
+    const sharedStrings = sharedStringsXml ? parseSharedStrings(sharedStringsXml.toString('utf8')) : [];
+    const allRows = parseWorksheet(worksheetXml.toString('utf8'), sharedStrings);
 
     const headerIndex = findHeaderRow(allRows, ['CN ID', 'Supplier Name', 'Agency', 'Category', 'Value']);
     if (headerIndex === -1) {
@@ -282,7 +285,7 @@ export class AusTenderCnAdapter implements SourceAdapter {
     return candidates;
   }
 
-  private parseRow(headers: string[], cells: unknown[]): ParsedRow | null {
+  private parseRow(headers: string[], cells: CellValue[]): ParsedRow | null {
     const get = (name: string): string => {
       const index = headers.indexOf(name);
       return index >= 0 ? stringValue(cells[index]) : '';
@@ -434,7 +437,7 @@ function buildEvidenceQuote(record: MutableCnSupplierRecord): string {
   return `AusTender Contract Notice${plural}: ${record.supplierName} won${valueText} in ${record.categoryCluster.replace(/-/g, ' ')}. Example: ${first.agency} — ${first.description} (${first.cnId}).`;
 }
 
-function findHeaderRow(rows: unknown[][], required: string[]): number {
+function findHeaderRow(rows: CellValue[][], required: string[]): number {
   for (let i = 0; i < rows.length; i++) {
     const cells = rows[i].map((c) => stringValue(c));
     if (required.every((col) => cells.includes(col))) {
