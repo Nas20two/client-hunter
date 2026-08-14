@@ -17,7 +17,7 @@ jobs:
       - run: npm run build
       - run: npm run hunt
         env:
-          BUZZ_RELAY_URL: ${{ secrets.BZZ_RELAY_URL }}
+          BUZZ_RELAY_URL: ${{ secrets.BUZZ_RELAY_URL }}
           BUZZ_PRIVATE_KEY: ${{ secrets.BUZZ_PRIVATE_KEY }}
           BUZZ_AUTH_TAG: ${{ secrets.BUZZ_AUTH_TAG }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
