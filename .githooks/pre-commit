@@ -1,0 +1,51 @@
+#!/bin/bash
+# PRE-COMMIT SECRET GUARD — shared across all NaSy repos
+# Root cause it prevents: a blanket `git add` automation committed live
+# credentials for months (Apr 16 + Jul 13), undetected until Oct 10.
+# Installed 2026-10-29: "No compromise on security."
+#
+# Bypass (deliberately, knowing the risk): git commit --no-verify
+
+BLOCKED=0
+
+# --- 1. Filename patterns ---
+PATTERNS='\.webui_secret_key|client_secret\.json|OPENROUTER_CONFIG\.txt|api.?keys?\.(txt|json)$|\.credentials\.json|credentials\.json|\.env$|\.env\.local|\.env\.production|\.pem$|\.key$|id_rsa|\.p12$|secret|credential|service.?account'
+FILES=$(git diff --cached --name-only --diff-filter=ACM 2>/dev/null)
+for f in $FILES; do
+  if echo "$f" | grep -qiE "$PATTERNS"; then
+    echo "🔴 BLOCKED: '$f' looks like a credential file."
+    BLOCKED=1
+  fi
+done
+
+# --- 2. Content scan: real key shapes in ADDED lines ---
+if [ -n "$FILES" ]; then
+  HITS=$(git diff --cached -U0 2>/dev/null | grep -E '^\+' \
+    | grep -oE '(sk-[A-Za-z0-9_-]{20,}|sk-or-v1-[A-Za-z0-9_-]{20,}|re_[A-Za-z0-9_]{20,}|AIzaSy[A-Za-z0-9_-]{30,}|rnd_[A-Za-z0-9]{20,}|fal-[A-Za-z0-9_-]{20,}|ghp_[A-Za-z0-9]{30,}|gho_[A-Za-z0-9]{30,}|AKIA[A-Z0-9]{16}|xox[baprs]-[A-Za-z0-9-]{10,}|-----BEGIN [A-Z ]*PRIVATE KEY-----)' \
+    | head -5)
+  if [ -n "$HITS" ]; then
+    echo "🔴 BLOCKED: secret-shaped strings in staged additions:"
+    echo "$HITS" | sed 's/\(.\{12\}\).*/\1…REDACTED/'
+    BLOCKED=1
+  fi
+fi
+
+# --- 3. Block committed .env-style files by content heuristics ---
+if [ -n "$FILES" ]; then
+  ENVHIT=$(git diff --cached -U0 2>/dev/null | grep -E '^\+' \
+    | grep -iE '^\+[A-Z_]*(API_KEY|SECRET|TOKEN|PASSWORD|PRIVATE_KEY)[A-Z_]*\s*=\s*["'"'"']?[A-Za-z0-9_:/+.-]{16,}' | head -3)
+  if [ -n "$ENVHIT" ]; then
+    echo "🔴 BLOCKED: credential assignment detected in staged additions:"
+    echo "$ENVHIT" | sed 's/=\(.\{4\}\).*/=\1…REDACTED/'
+    BLOCKED=1
+  fi
+fi
+
+if [ "$BLOCKED" -eq 1 ]; then
+  echo ""
+  echo "Commit REFUSED by the secret guard."
+  echo "If this is a template/example: add an exception in .gitignore"
+  echo "or commit entirely on purpose with: git commit --no-verify"
+  exit 1
+fi
+exit 0
