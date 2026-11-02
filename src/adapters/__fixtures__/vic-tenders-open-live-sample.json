@@ -1,0 +1,225 @@
+[
+  {
+    "source": "vic-tenders-open",
+    "sourceId": "procf22-000236-road-safety-services-register",
+    "sourceUrl": "https://www.tenders.vic.gov.au/tender/view?id=249237",
+    "rawData": {
+      "rfxNumber": "PROCF22-000236",
+      "title": "Road Safety Services Register",
+      "agency": "Transport Accident Commission",
+      "status": "Open",
+      "type": "Expression of Interest",
+      "openDate": "Fri, 10 March 2023 9:15 am",
+      "closeDate": "Fri, 01 March 2030 2:00 pm",
+      "unspsc": [
+        "80000000 - Management and Business Professionals and Administrative Services"
+      ],
+      "tenderId": "249237",
+      "detailUrl": "https://www.tenders.vic.gov.au/tender/view?id=249237",
+      "listUrl": "https://www.tenders.vic.gov.au/tenders/open"
+    },
+    "discoveredAt": "2026-11-02T09:45:58.231Z"
+  },
+  {
+    "source": "vic-tenders-open",
+    "sourceId": "procf23-149-clinical-advisory-services-register",
+    "sourceUrl": "https://www.tenders.vic.gov.au/tender/view?id=285775",
+    "rawData": {
+      "rfxNumber": "PROCF23-149",
+      "title": "Clinical Advisory Services Register",
+      "agency": "Transport Accident Commission",
+      "status": "Open",
+      "type": "Expression of Interest",
+      "openDate": "Mon, 24 February 2025 5:00 pm",
+      "closeDate": "Mon, 25 February 2030 5:00 pm",
+      "unspsc": [
+        "85000000 - Healthcare Services"
+      ],
+      "tenderId": "285775",
+      "detailUrl": "https://www.tenders.vic.gov.au/tender/view?id=285775",
+      "listUrl": "https://www.tenders.vic.gov.au/tenders/open"
+    },
+    "discoveredAt": "2026-11-02T09:45:58.232Z"
+  },
+  {
+    "source": "vic-tenders-open",
+    "sourceId": "itr-ss-05-2018-invitation-to-register-uniforms-and-personal-protective-equipment",
+    "sourceUrl": "https://www.tenders.vic.gov.au/tender/view?id=97410",
+    "rawData": {
+      "rfxNumber": "ITR-SS-05-2018",
+      "title": "Invitation to Register - Uniforms and Personal Protective Equipment (PPE) Ethical Supplier Register.",
+      "agency": "Department of Treasury and Finance",
+      "status": "Open",
+      "type": "Request for Tender",
+      "openDate": "Tue, 04 September 2018 4:00 pm",
+      "closeDate": "Fri, 04 August 2028 2:00 pm",
+      "unspsc": [
+        "53000000 - Apparel and Luggage and Personal Care Products - 50%",
+        "46000000 - Defense and Law Enforcement and Security and Safety Equipment and Supplies - 50%"
+      ],
+      "tenderId": "97410",
+      "detailUrl": "https://www.tenders.vic.gov.au/tender/view?id=97410",
+      "listUrl": "https://www.tenders.vic.gov.au/tenders/open"
+    },
+    "discoveredAt": "2026-11-02T09:45:58.232Z"
+  },
+  {
+    "source": "vic-tenders-open",
+    "sourceId": "t421508-station-pier-marine-infrastructure-maintenance-and-pile-rehabilitation-w",
+    "sourceUrl": "https://www.tenders.vic.gov.au/tender/view?id=336978",
+    "rawData": {
+      "rfxNumber": "T421508",
+      "title": "Station Pier marine infrastructure maintenance and pile rehabilitation works",
+      "agency": "Ports Victoria",
+      "status": "Open",
+      "type": "Request for Tender",
+      "openDate": "Fri, 16 October 2026 7:15 pm",
+      "closeDate": "Fri, 11 December 2026 2:00 pm",
+      "unspsc": [
+        "72140000 - Heavy construction services - 25%",
+        "72141200 - Marine construction services - 25%",
+        "81101606 - Marine engineering - 25%",
+        "95121615 - Quay or wharf - 25%"
+      ],
+      "tenderId": "336978",
+      "detailUrl": "https://www.tenders.vic.gov.au/tender/view?id=336978",
+      "listUrl": "https://www.tenders.vic.gov.au/tenders/open"
+    },
+    "discoveredAt": "2026-11-02T09:45:58.232Z"
+  },
+  {
+    "source": "vic-tenders-open",
+    "sourceId": "t2026-0812-deeca-property-portfolio-cleaning-services",
+    "sourceUrl": "https://www.tenders.vic.gov.au/tender/view?id=336013",
+    "rawData": {
+      "rfxNumber": "T2026-0812",
+      "title": "DEECA Property Portfolio Cleaning Services",
+      "agency": "Department of Energy, Environment & Climate Action",
+      "status": "Open",
+      "type": "Request for Tender",
+      "openDate": "Thu, 08 October 2026 9:15 am",
+      "closeDate": "Thu, 10 December 2026 2:00 pm",
+      "unspsc": [
+        "76111500 - General building and office cleaning and maintenance services"
+      ],
+      "tenderId": "336013",
+      "detailUrl": "https://www.tenders.vic.gov.au/tender/view?id=336013",
+      "listUrl": "https://www.tenders.vic.gov.au/tenders/open"
+    },
+    "discoveredAt": "2026-11-02T09:45:58.232Z"
+  },
+  {
+    "source": "vic-tenders-open",
+    "sourceId": "1222901598-hydrographic-services",
+    "sourceUrl": "https://www.tenders.vic.gov.au/tender/view?id=337640",
+    "rawData": {
+      "rfxNumber": "1222901598",
+      "title": "Hydrographic Services",
+      "agency": "Melbourne Water",
+      "status": "Open",
+      "type": "Request for Tender",
+      "openDate": "Tue, 27 October 2026 2:00 pm",
+      "closeDate": "Tue, 08 December 2026 5:00 pm",
+      "unspsc": [
+        "41114300 - Hydrological instruments - 70%",
+        "20121910 - Telemetry systems - 20%",
+        "72151500 - Electrical system services - 10%"
+      ],
+      "tenderId": "337640",
+      "detailUrl": "https://www.tenders.vic.gov.au/tender/view?id=337640",
+      "listUrl": "https://www.tenders.vic.gov.au/tenders/open"
+    },
+    "discoveredAt": "2026-11-02T09:45:58.232Z"
+  },
+  {
+    "source": "vic-tenders-open",
+    "sourceId": "t421509-station-pier-outer-west-berth-fender-upgrade",
+    "sourceUrl": "https://www.tenders.vic.gov.au/tender/view?id=335148",
+    "rawData": {
+      "rfxNumber": "T421509",
+      "title": "Station Pier - Outer West Berth Fender Upgrade",
+      "agency": "Ports Victoria",
+      "status": "Open",
+      "type": "Request for Tender",
+      "openDate": "Wed, 30 September 2026 5:00 pm",
+      "closeDate": "Mon, 30 November 2026 5:00 pm",
+      "unspsc": [
+        "72141200 - Marine construction services - 25%",
+        "25111920 - Marine fenders - 25%",
+        "81100000 - Professional engineering services - 25%",
+        "95121615 - Quay or wharf - 25%"
+      ],
+      "tenderId": "335148",
+      "detailUrl": "https://www.tenders.vic.gov.au/tender/view?id=335148",
+      "listUrl": "https://www.tenders.vic.gov.au/tenders/open"
+    },
+    "discoveredAt": "2026-11-02T09:45:58.232Z"
+  },
+  {
+    "source": "vic-tenders-open",
+    "sourceId": "eoi70902-warracknabeal-ticket-agent",
+    "sourceUrl": "https://www.tenders.vic.gov.au/tender/view?id=338435",
+    "rawData": {
+      "rfxNumber": "EOI70902",
+      "title": "Warracknabeal Ticket Agent",
+      "agency": "V/Line",
+      "status": "Open",
+      "type": "Expression of Interest",
+      "openDate": "Mon, 02 November 2026 9:00 am",
+      "closeDate": "Mon, 30 November 2026 5:00 pm",
+      "unspsc": [
+        "78111600 - Passenger railway transportation - 25%",
+        "90121603 - Passenger ticket verification service - 25%",
+        "90121500 - Travel agents - 25%",
+        "90120000 - Travel facilitation - 25%"
+      ],
+      "tenderId": "338435",
+      "detailUrl": "https://www.tenders.vic.gov.au/tender/view?id=338435",
+      "listUrl": "https://www.tenders.vic.gov.au/tenders/open"
+    },
+    "discoveredAt": "2026-11-02T09:45:58.232Z"
+  },
+  {
+    "source": "vic-tenders-open",
+    "sourceId": "ct10718-cctv-sewer-inspections-program-2026-2027",
+    "sourceUrl": "https://www.tenders.vic.gov.au/tender/view?id=338321",
+    "rawData": {
+      "rfxNumber": "CT10718",
+      "title": "CCTV Sewer Inspections Program 2026 - 2027",
+      "agency": "North East Water",
+      "status": "Open",
+      "type": "Request for Tender",
+      "openDate": "Wed, 28 October 2026 5:30 pm",
+      "closeDate": "Mon, 30 November 2026 2:00 pm",
+      "unspsc": [
+        "83111802 - Closed circuit television services - 50%",
+        "83000000 - Public Utilities and Public Sector Related Services - 50%"
+      ],
+      "tenderId": "338321",
+      "detailUrl": "https://www.tenders.vic.gov.au/tender/view?id=338321",
+      "listUrl": "https://www.tenders.vic.gov.au/tenders/open"
+    },
+    "discoveredAt": "2026-11-02T09:45:58.232Z"
+  },
+  {
+    "source": "vic-tenders-open",
+    "sourceId": "fol26-8005-design-construct-and-fitout-of-medical-panels-485-la-trobe-street-mel",
+    "sourceUrl": "https://www.tenders.vic.gov.au/tender/view?id=338581",
+    "rawData": {
+      "rfxNumber": "FOL26/8005 ",
+      "title": "Design, Construct and Fitout of Medical Panels, 485 La Trobe Street, Melbourne",
+      "agency": "Victorian Workcover Authority",
+      "status": "Open",
+      "type": "Request for Tender",
+      "openDate": "Fri, 30 October 2026 2:05 pm",
+      "closeDate": "Fri, 27 November 2026 2:00 pm",
+      "unspsc": [
+        "72000000 - Building and Facility Construction and Maintenance Services"
+      ],
+      "tenderId": "338581",
+      "detailUrl": "https://www.tenders.vic.gov.au/tender/view?id=338581",
+      "listUrl": "https://www.tenders.vic.gov.au/tenders/open"
+    },
+    "discoveredAt": "2026-11-02T09:45:58.232Z"
+  }
+]
